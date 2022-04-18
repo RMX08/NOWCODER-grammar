@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+	int a,b,i,d;
+	char c[10001],x;
+	i=0;
+	cin>>a>>d;
+    a=a+d;
+	while(a)
+	{
+		b=a%16;
+		if (b<10)
+		    c[i++]=b+48;
+		else
+		    c[i++]=b+'a'-10;
+		a=a/16;
+	}
+	for (int j=strlen(c)-1;j>=0;j--)
+	        cout<<c[j];
+	return 0;
+ } 
