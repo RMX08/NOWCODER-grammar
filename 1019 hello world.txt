@@ -1,0 +1,11 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    char a;
+    int b;
+    scanf("%c",&a);
+    b=a+1;
+    printf("%c",b);
+    return 0;
+}
