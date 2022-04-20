@@ -1,0 +1,9 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long a,b,c;
+    cin>>a>>b>>c;
+    cout<<a*b*2+b*c*2+a*c*2<<endl<<a*b*c;
+    return 0;
+}
