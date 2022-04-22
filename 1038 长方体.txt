@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long a,b,c,x,y,z;
+    cin>>a>>b>>c;
+    x=sqrt(a*b/c);
+    y=sqrt(a*c/b);
+    z=sqrt(b*c/a);
+    cout<<(x+y+z)*4;
+    return 0;
+}
