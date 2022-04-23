@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a;
+    cin>>a;
+    a=a%100;
+    if (a>=3&&a<=5)
+        cout<<"spring";
+    else if (a>5&&a<9)
+        cout<<"summer";
+    else if (a>8&&a<12)
+        cout<<"autumn";
+    else
+        cout<<"winter";
+    return 0;
+}

@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    double m;
+    int n;
+    cin>>n;
+    m=n*12*2.54*10;
+    if (n%5!=0)
+        printf("%.1f",m);
+    else
+        cout<<m;
+}

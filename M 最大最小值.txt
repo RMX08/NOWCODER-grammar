@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long a,b,c,m,n;
+    cin>>a>>b>>c;
+    m=a>b?a:b;
+    cout<<"The maximum number is : "<<max(m,c)<<endl;
+    n=b<a?b:a;
+    cout<<"The minimum number is : "<<min(n,c);
+    return 0;
+}

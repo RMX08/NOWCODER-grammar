@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int b[8][2],a[8]={0},flag;
+    for (int i=0;i<7;i++)
+       for (int j=0;j<2;j++)
+           cin>>b[i][j];
+    for (int i=0;i<7;i++)
+    {
+        if (b[i][0]+b[i][1]>8)
+        {
+            if (b[i][0]+b[i][1]<=b[flag][0]+b[flag][1])
+                flag=flag;
+            else
+                flag=i;
+        }
+    }
+    cout<<flag+1;
+    return 0;
+}

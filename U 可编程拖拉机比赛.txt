@@ -1,0 +1,13 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    float n;
+    int a,b,c;
+    cin>>n;
+    a=ceil(n*0.1)-floor(n*0.1);
+    b=a+ceil(n*0.2)-floor(n*0.2);
+    c=b+ceil(n*0.3)-floor(n*0.3);
+    cout<<a<<" "<<b<<" "<<c;
+    return 0; 
+}
