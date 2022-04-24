@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    double sum;
+    cin>>n;
+    while (n>0)
+    {
+        if (n%2==0)
+            sum-=1.0/n;
+        else
+            sum+=1.0/n;
+        n--;
+    }
+    printf("%.3lf",sum);
+    return 0;
+}
