@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    double sum;
+    cin>>n;
+    while (n>0)
+    {
+        sum+=1.0/n;
+        n--;
+    }
+    printf("%.6f",sum);
+    return 0;
+}
