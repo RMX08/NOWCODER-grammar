@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,a,b,sum;
+    cin>>n;
+    a=1;b=1;
+    if (n==1)
+        cout<<"1";
+    else if (n==2)
+        cout<<"1";
+    else
+    {
+        for (int i=1;i<=n-2;i++)
+        {
+            sum=a+b;
+            if (i%2!=0)
+                a=sum;
+            else
+                b=sum;
+        }
+        cout<<sum;
+    }
+    return 0;
+}
