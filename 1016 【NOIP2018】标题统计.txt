@@ -1,0 +1,10 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    char a[6];
+    int j=0;
+    while (cin>>a[j++]);
+    cout<<strlen(a);
+    return 0;
+}
