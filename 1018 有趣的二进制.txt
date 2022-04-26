@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long sum;
+    unsigned long long n;
+    while (cin>>n)
+    {
+        sum=0;
+        if (n<0)
+            n=-1*n;
+        while (n>0)
+        {
+            if (n%2==1)
+                sum++;
+            n/=2;
+        }
+        cout<<sum<<endl;
+    }
+    return 0;
+}
