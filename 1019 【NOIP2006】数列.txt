@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int k,n,i=0,m=0;
+    long long sum=0;
+    char arr[100000];
+    cin>>k>>n;
+    while(n>0)
+    {
+        sum+=n%2*pow(k,i);
+        n/=2;
+        i++;
+    }
+    cout<<sum;
+    return 0;
+}
