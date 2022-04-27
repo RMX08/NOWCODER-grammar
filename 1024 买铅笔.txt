@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,pri[10001],num[10001],a=1;
+    long min=10000001;
+    cin>>n;
+    for (int i=0;i<3;i++)
+    {
+        cin>>num[i]>>pri[i];
+        //cout<<num[i]<<" "<<pri[i]<<" ";
+        while (a*num[i]<n)
+            a++;
+        if (a*pri[i]<min)
+            min=a*pri[i];
+        //cout<<a*pri[i]<<" "<<min<<endl;
+        a=0;
+    }
+    cout<<min;
+    return 0;
+}
