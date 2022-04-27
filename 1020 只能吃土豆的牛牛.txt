@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long k,sum=0,T,i=0,j=1;
+    cin>>T;
+    for (int num=1;num<=T;num++)
+    {
+        cin>>k;
+        while(k>0)
+        {
+            sum+=k%2*pow(3,i);
+            i++;
+            k/=2;
+        }
+        cout<<"Case #"<<j++<<": "<<sum<<endl;
+        sum=0;
+        i=0;
+    }
+    return 0;
+}
