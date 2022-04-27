@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    float n,gpa[51],sc[51];
+    double S=0,T=0;
+    cin>>n;
+    for (int i=0;i<n;i++)
+    {
+        cin>>gpa[i]>>sc[i];
+        S+=sc[i];
+        T+=gpa[i]*sc[i];
+    }
+    printf("%.1f",T/S);
+    return 0;
+}
