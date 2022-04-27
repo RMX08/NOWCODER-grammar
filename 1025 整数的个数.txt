@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int k,n,i=0,a=0,b=0,c=0;
+    int arr[101];
+    cin>>k;
+    while (cin>>n)
+        arr[i++]=n;
+    //cout<<arr[4]<<" "<<i<<endl;
+    for (int j=0;j<=i-1;j++)
+    {
+        if (arr[j]==1)
+            a++;
+        if (arr[j]==5)
+            b++;
+        if (arr[j]==10)
+            c++;
+        //cout<<a<<" "<<b<<" "<<c<<" "<<arr[4]<<endl;
+    }
+    printf("%d %d %d",a,b,c);
+    return 0;
+}
