@@ -1,0 +1,29 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,r,i=0,a;//a为取余
+    char arr[100001];
+    cin>>n>>r;
+    cout<<n<<"=";
+    if (n==0)
+    {
+        printf("0(base%d)",r);
+        return 0;
+    }
+    while (n!=0)
+    {
+        a=n%r;
+        if (a<0)
+            a=n-(n/r+1)*r;
+        n=(n-a)/r;
+        arr[i]=a+'0';
+        if (arr[i]>'9')
+            arr[i]=a+'A'-10;
+        i++;
+    }
+    for (int i=strlen(arr)-1;i>=0;i--)
+        cout<<arr[i];
+    printf("(base%d)",r);
+    return 0;
+}
