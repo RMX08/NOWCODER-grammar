@@ -1,0 +1,58 @@
+简化代码：
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long n,m=0,num=0,i=2;//m为拆分次数，偶数为nancy，奇数为johnson
+    cin>>n;
+        while(n!=1)
+        {
+            if (n%i==0)
+            {
+                n/=i;
+                m++;
+            }
+            else
+                i++;
+        }
+        if (m%2!=0)
+            cout<<"Nancy";
+        else
+            cout<<"Johnson";
+        return 0;
+}
+
+我的（用时短、内存少）：
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long n,m=0,num=0,j=0;//m为拆分次数，偶数为nancy，奇数为johnson
+    long arr[1000001];
+    cin>>n;
+    arr[0]=n;
+    //while(1)
+    //{
+        while(j<=num)
+        {
+            for (int i=2;i<=n/2;i++)
+            {
+                if (n%i==0)
+                {
+                    arr[num]=i;
+                    num++;
+                    arr[num]=n/i;
+                    m++;
+                    n=arr[j];
+                    //cout<<arr[num-1]<<" "<<arr[num]<<" "<<num<<" "<<m<<" "<<n<<endl;
+                }
+            }
+            n=arr[++j];
+            //cout<<n<<" "<<j<<endl;
+        }
+    if (m%2==0)
+        cout<<"Nancy";
+    else
+        cout<<"Johnson";
+    return 0;
+}
