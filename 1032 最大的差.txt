@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long n,m,min=100000,max=0;
+    cin>>n;
+    while(n--)
+    {
+        cin>>m;
+        if (m>max)
+            max=m;
+        if (m<min)
+            min=m;
+    }
+    cout<<max-min;
+    return 0;
+}
