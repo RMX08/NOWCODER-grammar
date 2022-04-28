@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,n,m,arr[101],sum=0;
+    cin>>t;
+    while(t--)
+    {
+        cin>>n>>m;
+        for (int i=1;i<=m;i++)
+        {
+            cin>>arr[i];
+            if (arr[i]<=n)
+            {
+                sum++;
+                n-=arr[i];
+            }
+        }
+        cout<<sum<<endl;
+        sum=0;
+    }
+    return 0;
+}
