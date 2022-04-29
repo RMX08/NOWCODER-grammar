@@ -1,0 +1,18 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long len,num,flag,x,time,max=0;
+    cin>>len>>num;
+    while (num--)
+    {
+        cin>>flag>>x;
+        if (flag==0)
+            time=x;
+        else
+            time=len-x;
+        max=time>max?time:max;
+    }
+    cout<<max;
+    return 0;
+}
