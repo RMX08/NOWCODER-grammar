@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,arr[101]={0},i=0,min,max;
+    cin>>n;
+    while (n--)
+        cin>>arr[i++];
+    sort(arr,arr+i);
+    min=arr[0];
+    max=arr[i-1];
+    for (int j=0;j<i;j++)
+        if (min!=arr[j])
+        {
+            min=arr[j];
+            break;
+        }
+    for (int j=i-1;j>=0;j--)
+        if (max!=arr[j])
+        {
+            max=arr[j];
+            break;
+        }
+    cout<<arr[i-1]-max<<" "<<arr[i-1]-min<<" "<<max-min<<" "<<max-arr[0];
+    return 0;
+}
