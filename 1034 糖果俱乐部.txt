@@ -1,0 +1,25 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long n,i1=0,i2=0,m,min1=100001,sum1=0,sum2=0;
+    cin>>n;
+    while (n--)
+    {
+        cin>>m;
+        if (m%2==0)
+        {
+            i2++;
+            sum2+=m;
+        }
+        else
+        {
+            i1++;
+            min1=m<min1?m:min1;
+            sum1+=m;
+        }
+    }
+    if (i1%2==1)
+        sum1-=min1;
+    cout<<sum1+sum2;
+}
