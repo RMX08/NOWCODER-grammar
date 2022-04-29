@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    char ch;
+    int i=0,sum=0;
+    while ((ch=getchar())!='.')
+        if (ch=='a')
+            sum++;
+    cout<<sum;
+    return 0;
+}
