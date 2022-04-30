@@ -1,0 +1,28 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int m,k,g,p,sum=0,n1,n2;
+    cin>>m>>k>>g>>p;
+    if (m>0)
+    {
+        sum=m/p;
+        k+=sum;
+        g+=sum;
+    }
+    while(1)
+    {
+        n1=k/2;
+        sum+=n1;
+        k%=2;
+        n2=g/4;
+        sum+=n2;
+        g%=4;
+        k+=n1+n2;
+        g+=n1+n2;
+        if (k<2&&g<4)
+            break;
+    }
+    cout<<sum;
+    return 0;
+}
