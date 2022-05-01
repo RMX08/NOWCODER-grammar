@@ -1,0 +1,74 @@
+（完整版）更相减损术：
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long a,b,ans=1,tmp=0;
+    cin>>a>>b;
+    while(a%2==0&&b%2==0)
+    {
+        a/=2;
+        b/=2;
+        ans*=2;
+        if (a%2!=0||b%2!=0)
+            break;
+    }
+    //cout<<ans<<endl;
+    if (a>b)
+    {
+        while (b!=tmp)
+        {
+            //cout<<a<<" "<<b<<" "<<tmp<<endl;
+            tmp=a-b;
+            if (b>tmp)
+            {
+                a=b;
+                b=tmp;
+                tmp=0;
+            }
+            else
+                a=tmp;
+            //cout<<a<<" "<<b<<" "<<tmp<<endl;
+        }
+        //cout<<ans<<" "<<tmp<<endl;
+        cout<<ans*tmp;
+    }
+    else if (a<b)
+    {
+        while (a!=tmp)
+        {
+            //cout<<a<<" "<<b<<" "<<tmp<<endl;
+            tmp=b-a;
+            if (a>tmp)
+            {
+                b=a;
+                a=tmp;
+                tmp=0;
+            }
+            else
+                b=tmp;
+        }
+        //cout<<ans<<" "<<tmp<<endl;
+        cout<<ans*tmp;
+    }
+    else
+        cout<<a;
+    return 0;
+}
+（简化版）：
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long a,b;
+    cin>>a>>b;
+    while (a!=b)
+    {
+        if (a>b)
+            a=a-b;
+        else 
+            b=b-a;
+    }
+    cout<<a;
+    return 0;
+}
