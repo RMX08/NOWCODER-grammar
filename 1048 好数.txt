@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t,sum=0,a,b,shi,bai;
+    cin>>t;
+    while (t--)
+    {
+        cin>>a>>b;
+        for (int i=a;i<=b;i++)
+        {
+            bai=i/100;
+            shi=(i/10)%10;
+            if (((bai*shi)%10)==(i%10))
+                sum++;
+        }
+        cout<<sum<<endl;
+        sum=0;
+    }
+    return 0;
+}
