@@ -1,0 +1,113 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,xi,i=1,lin=0;
+    cin>>n;
+    while (n>=0)
+    {
+        cin>>xi;
+        //cout<<"(xi="<<xi<<")";
+        if (i==1)//第一项
+        {
+            if (xi==0)//系数为0
+            {
+                i++;
+                n--;
+                lin++;
+                //cout<<"(i="<<i<<" lin="<<lin<<")";
+                continue;
+            }
+            else if (n==1)//次数为1
+            {
+                if (xi==1)
+                    cout<<"x";
+                else if (xi==-1)
+                    cout<<"-x";
+                else
+                    cout<<xi<<"x";
+            }
+            //以下次数不为1
+            else if (xi==1)
+                cout<<"x^"<<n;
+            else if (xi==-1)
+                cout<<"-x^"<<n;
+            else 
+                cout<<xi<<"x^"<<n;
+        }
+        //第二项朝后
+        else if (n==0)//最后一项
+        {
+            if (xi>0&&lin==i-1)//前置项都为0
+                cout<<xi;
+            else if (xi>0)
+                cout<<"+"<<xi;
+            else if (xi==0)
+            {
+                if (lin==i-1)//所有项为0
+                    cout<<"0";
+                else//前置项不为0，最后一项为0
+                    return 0;
+            }
+            else//最后一项为负
+                cout<<xi;
+        }
+        else//除第一项和最后一项
+        {
+            if (xi==0)//系数为0
+            {
+                i++;
+                n--;
+                lin++;
+                //cout<<"(i="<<i<<" lin="<<lin<<")";
+                continue;
+            }
+            //以下系数都不为0
+            else if (n==1)
+            {
+                if (lin==i-1)
+                {
+                    if (xi==1)
+                        cout<<"x";
+                    else if (xi==-1)
+                        cout<<"-x";
+                    else
+                        cout<<xi<<"x";
+                }
+                else
+                {
+                    if (xi==1)
+                        cout<<"+x";
+                    else if (xi==-1)
+                        cout<<"-x";
+                    else if (xi>0)
+                        cout<<"+"<<xi<<"x";
+                    else 
+                        cout<<xi<<"x";
+                }
+            }
+            else if (lin==i-1)//前置项都为0
+            {
+                if (xi==1)
+                    cout<<"x^"<<n;
+                else if (xi==-1)
+                    cout<<"-x^"<<n;
+                else
+                    cout<<xi<<"x^"<<n;
+            }
+            //前置项都不为0
+            else if (xi==1)
+                cout<<"+x^"<<n;
+            else if (xi==-1)
+                cout<<"-x^"<<n;
+            else if (xi>0)
+                cout<<"+"<<xi<<"x^"<<n;
+            else 
+                cout<<xi<<"x^"<<n;
+        }
+        i++;
+        n--;
+        //cout<<"(i="<<i<<" lin="<<lin<<")";
+    }
+    return 0;
+}
