@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int huiwen(int i)
+{
+    int tmp=i,num=0;
+    while(tmp)
+    {
+        num=num*10+tmp%10;
+        tmp/=10;
+    }
+    if (num==i)
+        return 1;
+    else
+        return 0;
+}
+int main()
+{
+    long flag,n;
+    cin>>n;
+    for (int i=1;i<=n;i++)
+    {
+        flag=huiwen(i);
+        if (flag==1)
+            cout<<i<<endl;
+    }
+    return 0;
+}
