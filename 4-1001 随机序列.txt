@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int T;
+    cin>>T;
+    while (T--)
+    {
+        int n,arr[5001]={0},max=0,min=5001;
+        double ave=0,fc=0;
+        cin>>n;
+        for (int i=1;i<=n;i++)
+        {
+            cin>>arr[i];
+            ave+=arr[i];
+            max=arr[i]>max?arr[i]:max;
+            min=arr[i]<min?arr[i]:min;
+        }
+        //cout<<max<<" "<<min<<endl;
+        ave/=n;
+        for (int i=1;i<=n;i++)
+            fc+=pow(fabs(arr[i]*1.0-ave),2);
+        fc/=n;
+        printf("%d %.3lf\n",max-min,fc);
+    }
+    return 0;
+}
