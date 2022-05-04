@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long a,b,arr1[32769],arr2[32769],i=0,j=0,A=0,B=0,tmp=1;
+    cin>>a>>b;
+    while(a)
+    {
+        arr1[i++]=a%2;
+        a/=2;
+    }
+    while(b)
+    {
+        arr2[j++]=b%2;
+        b/=2;
+    }
+    for (int q=0;q<i;q++)
+    {
+        A+=arr1[q]*tmp;
+        tmp*=10;
+        //cout<<A<<" "<<tmp<<endl;
+    }
+    tmp=1;
+    for (int q=0;q<j;q++)
+    {
+        B+=arr2[q]*tmp;
+        tmp*=10;
+        //cout<<A<<" "<<tmp<<endl;
+    }
+    cout<<A+B;
+    return 0;
+}
