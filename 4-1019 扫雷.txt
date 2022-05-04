@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,m;
+    char arr[1001][1001],sweep[1001][1001];
+    cin>>n>>m;
+    for (int i=1;i<=n;i++)
+        for (int j=1;j<=m;j++)
+            cin>>arr[i][j];
+    for (int i=1;i<=n;i++)
+        for (int j=1;j<=m;j++)
+            sweep[i][j]='0';
+    for (int i=1;i<=n;i++)
+        for (int j=1;j<=m;j++)
+        {
+            if (arr[i][j]=='*')
+                for (int q=i-1;q<=i+1;q++)
+                    for (int p=j-1;p<=j+1;p++)
+                        sweep[q][p]+=1;
+        }
+    for (int i=1;i<=n;i++)
+        for (int j=1;j<=m;j++)
+        {
+            if (arr[i][j]=='*')
+               sweep[i][j]='*';
+        }
+    for (int i=1;i<=n;i++)
+    {
+        for (int j=1;j<=m;j++)
+            cout<<sweep[i][j];
+        cout<<endl;
+    }
+    return 0;
+}
