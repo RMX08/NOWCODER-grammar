@@ -1,0 +1,15 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,m,arr[30001];
+    cin>>n>>m;
+    for (int i=0;i<n;i++)
+        cin>>arr[i];
+    for (int i=n;i<n+m;i++)
+        cin>>arr[i];
+    sort(arr,arr+n+m);
+    for (int i=0;i<n+m;i++)
+        cout<<arr[i]<<" ";
+    return 0;
+}
