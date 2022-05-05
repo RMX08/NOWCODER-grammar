@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int  arr[10][10],num[10]={0},ans=1;
+    for (int i=1;i<=9;i++)
+        for (int j=1;j<=9;j++)
+            cin>>arr[i][j];
+    for (int i=1;i<=9;i++)//判断每一行
+    {
+        for (int j=1;j<=9;j++)
+            num[arr[i][j]]++;
+        for (int j=1;j<=9;j++)
+            if  (num[j]!=1)
+            {
+                cout<<"NO";
+                return 0;
+            }
+        for (int j=1;j<=9;j++)
+            num[j]=0;
+    }
+    for (int j=1;j<=9;j++)//判断每一列
+    {
+        for (int i=1;i<=9;i++)
+            num[arr[i][j]]++;
+        for (int i=1;i<=9;i++)
+            if  (num[i]!=1)
+            {
+                cout<<"NO";
+                return 0;
+            }
+        for (int j=1;j<=9;j++)
+            num[j]=0;
+    }
+    while(ans<=7)//判断每一宫
+    {
+        for (int i=1;i<=3;i++)
+            for (int j=ans;j<=2+ans;j++)
+                num[arr[i][j]]++;
+        for (int i=1;i<=9;i++)
+            if  (num[i]!=1)
+            {
+                cout<<"NO";
+                return 0;
+            }
+        for (int j=1;j<=9;j++)
+            num[j]=0;
+        if (ans!=1)
+        {
+            for (int i=ans;i<=2+ans;i++)//判断每一宫
+                for (int j=1;j<=3;j++)
+                    num[arr[i][j]]++;
+            for (int i=1;i<=9;i++)
+                if  (num[i]!=1)
+                {
+                    cout<<"NO";
+                    return 0;
+                }
+            for (int j=1;j<=9;j++)
+            num[j]=0;
+        }
+        ans+=3;
+    }
+    cout<<"YES";
+    return 0;
+}
