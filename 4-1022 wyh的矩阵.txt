@@ -1,0 +1,14 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long T,n,sum;
+    cin>>T;
+    while (T--)
+    {
+        cin>>n;
+        sum=(n*n/2+1)*(n*n/2+1);
+        cout<<sum<<endl;;
+    }
+    return 0;
+}
