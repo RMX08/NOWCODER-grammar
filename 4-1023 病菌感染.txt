@@ -1,0 +1,56 @@
+我的：
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long n,m,arr[1001][1001]={0},x,y;
+    cin>>n>>m;
+    while (m--)
+    {
+        cin>>x>>y;
+        arr[x][y]=1;
+    }
+    for (int i=1;i<=n;i++)
+        for (int j=1;j<=n;j++)
+        {
+            if (arr[i][j]==0)
+            {
+                if (arr[i-1][j]==0&&arr[i+1][j]==0&&arr[i][j-1]==0&&arr[i][j+1]==0)
+                    continue;
+                else if (arr[i-1][j]==1&&arr[i+1][j]==0&&arr[i][j-1]==0&&arr[i][j+1]==0)
+                    continue;
+                else if (arr[i-1][j]==0&&arr[i+1][j]==1&&arr[i][j-1]==0&&arr[i][j+1]==0)
+                    continue;
+                else if (arr[i-1][j]==0&&arr[i+1][j]==0&&arr[i][j-1]==1&&arr[i][j+1]==0)
+                    continue;
+                else if (arr[i-1][j]==0&&arr[i+1][j]==0&&arr[i][j-1]==0&&arr[i][j+1]==1)
+                    continue;
+                else
+                    arr[i][j]=1;
+            }
+        }
+    for (int i=1;i<=n;i++)
+        for (int j=1;j<=n;j++)
+            if (arr[i][j]==0)
+            {
+                cout<<"NO";
+                return 0;
+            }
+    cout<<"YES";
+    return 0;
+}
+简略版：
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long n,m,x,y;
+    cin>>n>>m;
+    for (int i=1;i<=m;i++)
+        cin>>x>>y;
+    if (m<n)
+        cout<<"NO";
+    else
+        cout<<"YES";
+    return 0;
+}
