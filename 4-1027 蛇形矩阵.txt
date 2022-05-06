@@ -1,0 +1,102 @@
+#include<bits/stdc++.h>
+using namespace std;
+long arr[1001][1001];
+int main()
+{
+    long num=1,ans=1,n,i,j;
+    cin>>n;
+    while (1)
+    {
+        i=num;
+        j=1;
+        for (int p=1;p<=num;p++)
+        {
+            arr[i][j]=ans;
+            ans++;
+            i--;
+            j++;
+        }
+        num++;
+        i=1;
+        j=num;
+        if (num>n)
+        {
+            num=n;
+            i=2;
+            j=num;
+            while (1)
+            {
+                for (int p=1;p<=num-1;p++)
+            {
+                arr[i][j]=ans;
+                ans++;
+                i++;
+                j--;
+            }
+            num--;
+            i=n;
+            j+=2;
+            for (int p=1;p<=num-1;p++)
+            {
+                arr[i][j]=ans;
+                ans++;
+                i--;
+                j++;
+            }
+            num--;
+            i+=2;
+            j=n;
+            if (ans==n*n+1)
+                break;
+            }
+            break;
+        }
+        for (int p=1;p<=num;p++)
+        {
+            arr[i][j]=ans;
+            ans++;
+            i++;
+            j--;
+        }
+        num++;
+        if (num>n)
+        {
+            num=n;
+            i=num;
+            j=2;
+            while (1)
+            {
+                for (int p=1;p<=num-1;p++)
+                {
+                    arr[i][j]=ans;
+                    ans++;
+                    i--;
+                    j++;
+                }
+                num--;
+                i+=2;
+                j=n;
+                if (ans==n*n+1)
+                    break;
+                for (int p=1;p<=num-1;p++)
+                {
+                    arr[i][j]=ans;
+                    ans++;
+                    i++;
+                    j--;
+                }
+                num--;
+                i=n;
+                j+=2;
+            }
+            break;
+        }
+    }
+    for (int p=1;p<=n;p++)
+    {
+        for (int q=1;q<=n;q++)
+            cout<<arr[p][q]<<" ";
+        cout<<endl;
+    }
+    return 0;
+}
