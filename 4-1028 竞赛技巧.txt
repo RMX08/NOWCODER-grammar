@@ -1,0 +1,85 @@
+我的：
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,time[5001][4],tmp;
+    cin>>n;
+    for (int i=0;i<n;i++)
+        for (int j=0;j<3;j++)
+            cin>>time[i][j];
+    for (int i=0;i<n;i++)
+        for (int j=i+1;j<n;j++)
+        {
+            if (time[i][0]==time[j][0])
+            {
+                if (time[i][1]==time[j][1])
+                {
+                    if (time[i][2]>time[j][2])
+                    {
+                        tmp=time[i][0];
+                        time[i][0]=time[j][0];
+                        time[j][0]=tmp;
+                        tmp=time[i][1];
+                        time[i][1]=time[j][1];
+                        time[j][1]=tmp;
+                        tmp=time[i][2];
+                        time[i][2]=time[j][2];
+                        time[j][2]=tmp;
+                    }
+                    else
+                        continue;
+                }
+                else  if (time[i][1]>time[j][1])
+                {
+                    tmp=time[i][0];
+                    time[i][0]=time[j][0];
+                    time[j][0]=tmp;
+                    tmp=time[i][1];
+                    time[i][1]=time[j][1];
+                    time[j][1]=tmp;
+                    tmp=time[i][2];
+                    time[i][2]=time[j][2];
+                    time[j][2]=tmp;
+                }
+                else
+                    continue; 
+            }
+            else if (time[i][0]>time[j][0])
+            {
+                tmp=time[i][0];
+                time[i][0]=time[j][0];
+                time[j][0]=tmp;
+                tmp=time[i][1];
+                time[i][1]=time[j][1];
+                time[j][1]=tmp;
+                tmp=time[i][2];
+                time[i][2]=time[j][2];
+                time[j][2]=tmp;
+            }
+        }
+    for (int i=0;i<n;i++)
+    {
+        for (int j=0;j<3;j++)
+            cout<<time[i][j]<<" ";
+        cout<<endl;
+    }
+    return 0;
+}
+简略版：
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,h,m,s,i,arr[5001];
+    cin>>n;
+    for(i=1;i<=n;i++)
+    {
+        cin>>h>>m>>s;
+        arr[i]=h*10000+m*100+s;
+    }
+    sort(arr,arr+n+1);//因为从1开始存数
+    for(i=1;i<=n;i++)
+        cout<<arr[i]/10000<<" "<<arr[i]/100%100<<" "<<arr[i]%100<<endl;
+    return 0;
+}
