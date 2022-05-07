@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long n,arr[11][2],i=0,dis[10],tmp;
+    cin>>n;
+    while (n--)
+    {
+        cin>>arr[i][0]>>arr[i][1];
+        dis[i]=pow(arr[i][0],2)+pow(arr[i][1],2);
+        i++;
+    }
+    for (int p=0;p<i;p++)
+        for (int q=0;q<i-1;q++)
+        {
+            if(dis[q]>dis[q+1])
+            {
+                tmp=dis[q];
+                dis[q]=dis[q+1];
+                dis[q+1]=tmp;
+                tmp=arr[q][0];
+                arr[q][0]=arr[q+1][0];
+                arr[q+1][0]=tmp;
+                tmp=arr[q][1];
+                arr[q][1]=arr[q+1][1];
+                arr[q+1][1]=tmp;
+            }
+        }
+    for (int p=0;p<i;p++)
+        cout<<arr[p][0]<<" "<<arr[p][1]<<" "<<dis[p]<<endl;
+    return 0;
+}
