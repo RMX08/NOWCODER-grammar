@@ -1,0 +1,40 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int hua1=0,opp1=0,n=0;
+    char arr[10000001],ch;
+    while ((ch=getchar())!='E')
+        arr[n++]=ch;
+    for (int i=0;i<n;i++)
+    {
+        if (arr[i]=='W')
+            hua1++;
+        else if (arr[i]=='L')
+            opp1++;
+        if ((hua1>=11&&hua1-opp1>=2)||(opp1>=11&&opp1-hua1>=2))
+        {
+            cout<<hua1<<":"<<opp1<<endl;
+            hua1=0;
+            opp1=0;
+        }
+    }
+    cout<<hua1<<":"<<opp1<<endl<<endl;
+    hua1=0;
+    opp1=0;
+    for (int i=0;i<n;i++)
+    {
+        if (arr[i]=='W')
+            hua1++;
+        else if (arr[i]=='L')
+            opp1++;
+        if ((hua1>=21&&hua1-opp1>=2)||(opp1>=21&&opp1-hua1>=2))
+        {
+            cout<<hua1<<":"<<opp1<<endl;
+            hua1=0;
+            opp1=0;
+        }
+    }
+    cout<<hua1<<":"<<opp1;
+    return 0;
+}
