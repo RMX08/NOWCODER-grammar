@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    char niu[9],mei[9],ch,i=0;
+    scanf("%s",niu);
+    scanf("%s",mei);
+    if (mei[0]=='e'&&niu[0]=='t')
+        cout<<"tiangou txdy";
+    else if (mei[0]=='t'&&niu[0]=='c')
+        cout<<"tiangou txdy";
+    else if (mei[0]=='c'&&niu[0]=='m')
+        cout<<"tiangou txdy";
+    else if (mei[0]=='m'&&niu[0]=='e')
+        cout<<"tiangou txdy";
+    else
+        cout<<"tiangou yiwusuoyou";
+    return 0;
+}
