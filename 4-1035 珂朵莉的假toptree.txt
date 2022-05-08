@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,m;
+    cin>>n;
+    m=n;
+    if (n<=9)
+        cout<<n;
+    else if (n<=189)
+    {
+        m=(m+10)/20;
+        if (n%2==0)
+            cout<<m;
+        else
+        {
+            n-=m*20-10;
+            cout<<(n-1)/2;
+        }
+    }
+    else
+    {
+        m=(m+110)/30;
+        if (n%3==1)
+            cout<<m/10;
+        else if (n%3==2)
+            cout<<m%10;
+        else
+        {
+            n-=m*30-110;
+            cout<<(n-2)/3;
+        }
+    }
+    return 0;
+}
