@@ -1,0 +1,16 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    char arr[104]={'0'},ch,n=0;
+    while ((ch=getchar())!='\n')
+        arr[n++]=ch;
+    for (int i=0;i<n-1;i++)
+        if ((arr[i]=='b'||arr[i]=='B')&&(arr[i+1]=='o'||arr[i+1]=='O')&&(arr[i+2]=='b'||arr[i+2]=='B'))
+        {
+            cout<<i;
+            return 0;
+        }
+    cout<<"-1";
+    return 0;
+}
