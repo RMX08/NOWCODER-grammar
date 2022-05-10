@@ -1,0 +1,24 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    char s[1001];
+    int num=0,arr[124]={0},tmp;
+    scanf("%s\n",s);
+    for (int i=0;i<strlen(s);i++)
+    {
+        tmp=s[i];
+        arr[tmp]=1;
+    }
+    for (int i=48;i<=57;i++)
+        if (arr[i]==1)
+            num++;
+    for (int i=65;i<=90;i++)
+        if (arr[i]==1)
+            num++;
+    for (int i=97;i<=122;i++)
+        if (arr[i]==1)
+            num++;
+    cout<<num;
+    return 0;
+}
