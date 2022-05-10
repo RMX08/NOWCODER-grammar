@@ -1,0 +1,66 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int T;
+    cin>>T;
+    getchar();
+    while (T--)
+    {
+        char A[601]={'0'},B[601]={'0'},C[601]={'0'},D[601]={'0'},ch;
+        int n1=0,n2=0,n3=0,n4=0;
+        while ((ch=getchar())!='\n')
+            A[n1++]=ch;
+        while ((ch=getchar())!='\n')
+            B[n2++]=ch;
+        while ((ch=getchar())!='\n')
+            C[n3++]=ch;
+        while ((ch=getchar())!='\n')
+            D[n4++]=ch;
+        //cout<<n1<<" "<<n2<<" "<<n3<<" "<<n4<<endl;
+        if (n1<n2&&n1<n3&&n1<n4)
+        {
+            cout<<"A"<<endl;
+            continue;
+        }
+        else if (n2<n1&&n2<n3&&n2<n4)
+        {
+            cout<<"B"<<endl;
+            continue;
+        }
+        else if (n3<n1&&n3<n2&&n3<n4)
+        {
+            cout<<"C"<<endl;
+            continue;
+        }
+        else if (n4<n1&&n4<n3&&n4<n2)
+        {
+            cout<<"D"<<endl;
+            continue;
+        }
+        else if (n1>n2&&n1>n3&&n1>n4)
+        {
+            cout<<"A"<<endl;
+            continue;
+        }
+        else if (n2>n1&&n2>n3&&n2>n4)
+        {
+            cout<<"B"<<endl;
+            continue;
+        }
+        else if (n3>n1&&n3>n2&&n3>n4)
+        {
+            cout<<"C"<<endl;
+            continue;
+        } 
+        else if (n4>n1&&n4>n3&&n4>n2)
+        {
+            cout<<"D"<<endl;
+            continue;
+        }
+        else 
+            cout<<"C"<<endl;
+        n1=0;n2=0;n3=0;n4=0;
+    }
+    return 0;
+}
