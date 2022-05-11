@@ -1,0 +1,33 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    char s[101];
+    int sum[123]={0},tmp,max=1,min=101;
+    scanf("%s\n",s);
+    for (int i=0;i<strlen(s);i++)
+    {
+        tmp=s[i];
+        sum[tmp]++;
+    }
+    for (int i=97;i<=122;i++)
+    {
+        max=max>sum[i]?max:sum[i];
+        if (sum[i]!=0)
+            min=min<sum[i]?min:sum[i];
+    }
+    tmp=max-min;
+    for (int i=2;i<(tmp/2);i++)
+    {
+        if (tmp%i==0)
+        {
+            cout<<"No Answer"<<endl<<"0";
+            return 0;
+        }
+    }
+    if (tmp==0||tmp==1)
+        cout<<"No Answer"<<endl<<"0";
+    else
+        cout<<"Lucky Word"<<endl<<tmp;
+    return 0;
+}
