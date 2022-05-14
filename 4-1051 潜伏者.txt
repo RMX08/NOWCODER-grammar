@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    char arr[91];//存加密规则
+    string mi,yuan,yi;
+    cin>>mi>>yuan>>yi;
+    for (int i=65;i<=90;i++)
+        arr[i]='0';
+    for (int i=0;i<mi.length();i++)
+    {
+        //cout<<(int)yuan[i]<<" "<<arr[(int)yuan[i]]<<" "<<mi[i]<<endl;
+        if (arr[(int)yuan[i]]!='0'&&mi[i]!=arr[(int)yuan[i]])
+        {
+            cout<<"Failed";
+            return 0;
+        }
+        else
+            arr[(int)yuan[i]]=mi[i];
+    }
+    for (int i=65;i<=90;i++)
+    {
+        if (arr[i]=='0')
+        {
+            cout<<"Failed";
+            return 0;
+        }
+    }
+    for (int i=0;i<yi.length();i++)
+    {
+        for (int j=65;j<=90;j++)
+        {
+            if (arr[j]==yi[i])
+            {
+                cout<<(char)j;
+                break;
+            }
+        }
+    }
+    return 0;
+}
