@@ -1,0 +1,35 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int flag=0,sign[1001]={0};
+    string k,C;
+    char M[1001];
+    cin>>k>>C;
+    for (int i=0;i<C.length();i++)//记录大写
+    {
+        int j;
+        if (C[i]<91)
+        {
+            sign[i]++;
+            C[i]=C[i]-'A'+'a';
+        }
+        if (k[i]<91)
+            k[i]=k[i]-'A'+'a';
+        if  (i>=k.length())
+            j=i%k.length();
+        else
+            j=i;
+        if (C[i]>=k[j])
+            M[i]=C[i]-k[j]+'a';
+        else
+            M[i]='z'-k[j]+1+C[i];
+    }
+    for (int i=0;i<C.length();i++)
+    {
+        if (sign[i]==1)
+            M[i]=M[i]-'a'+'A';
+        cout<<M[i];
+    }
+    return 0;
+}
