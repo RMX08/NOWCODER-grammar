@@ -1,0 +1,36 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,q,book[1001],a,b;
+    cin>>n>>q;
+    for (int i=0;i<n;i++)
+        cin>>book[i];
+    sort(book,book+n);
+    for (int i=0;i<q;i++)
+    {
+        int num=0,x,flag=0;
+        cin>>a>>b;
+        x=b;
+        while (x)
+        {
+            x/=10;
+            num++;
+        }
+        num=pow(10,num);
+        //cout<<num<<endl;
+        for (int j=0;j<n;j++)
+        {
+            //cout<<book[j]%num<<endl;
+            if ((book[j]%num)==b)
+            {
+                cout<<book[j]<<endl;
+                flag=1;
+                break;
+            }
+        }
+        if (flag==0)
+            cout<<"-1"<<endl;
+    }
+    return 0;
+}
