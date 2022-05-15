@@ -1,0 +1,17 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,sum=0,num=0;
+    char arr[1001][1001];
+    set<string> s;
+    cin>>n;
+    while(n--)
+    {
+        string a;
+        cin>>a;
+        s.insert(a);
+    }
+    cout<<s.size();
+    return 0;
+}
