@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,grade[101][3],sch[101]={0},max=0,flag,sum=0;
+    char name[101][21],con[101][2];
+    cin>>n;
+    for (int i=0;i<n;i++)
+    {
+        scanf("%s",name[i]);
+        cin>>grade[i][0]>>grade[i][1]>>con[i][0]>>con[i][1]>>grade[i][2];
+        if (grade[i][0]>80&&grade[i][2]>=1)
+            sch[i]+=8000;
+        if (grade[i][0]>85&&grade[i][1]>80)
+            sch[i]+=4000;
+        if (grade[i][0]>90)
+            sch[i]+=2000;
+        if (grade[i][0]>85&&con[i][1]=='Y')
+            sch[i]+=1000;
+        if (grade[i][1]>80&&con[i][0]=='Y')
+            sch[i]+=850;
+        if (sch[i]>max)
+        {
+            max=sch[i];
+            flag=i;
+        }
+        sum+=sch[i];
+    }
+    printf("%s\n%d\n%d",name[flag],max,sum);
+    return 0;
+}
