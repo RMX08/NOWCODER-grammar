@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long n,m;
+    cin>>n;
+    m=n;
+    n/=10;
+    while (n)
+    {
+        m=m*10+n%10;
+        n/=10;
+    }
+    for (int i=2;i<=sqrt(m);i++)
+    {
+        if (m%i==0)
+        {
+            printf("noprime");
+            return 0;
+        }
+    }
+    printf("prime");
+}
