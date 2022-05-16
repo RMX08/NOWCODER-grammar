@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int a,b,sum=0,tmp;
+    cin>>a>>b;
+    for (int i=a;i<=b;i++)
+    {
+        tmp=i;
+        while (tmp)
+        {
+            if (tmp%10==2)
+                sum++;
+            tmp/=10;
+        }
+    }
+    cout<<sum;
+    return 0;
+}
