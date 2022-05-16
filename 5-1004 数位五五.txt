@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    long long a,b,tmp;
+    int sum=0,ans=0;
+    cin>>a>>b;
+    for (int i=a;i<=b;i++)
+    {
+        tmp=i;
+        while (tmp)
+        {
+            sum+=tmp%10;
+            tmp/=10;
+        }
+        if  (sum%5==0)
+            ans++;
+        sum=0;
+    }
+    cout<<ans;
+    return 0;
+}
