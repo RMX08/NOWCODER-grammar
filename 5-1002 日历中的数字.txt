@@ -1,0 +1,129 @@
+我的（重日历）：
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int y,m,x,tmp,sum=0,end,num=0;
+    while (cin>>y>>m>>x)
+    {
+        tmp=y;
+        while (tmp)
+        {
+            if (tmp%10==x)
+                num++;
+            tmp/=10;
+        }
+        
+        if (m==2)
+        {
+            if ((y%400==0)||y%100!=0&&y%4==0)
+                end=29;
+            else
+                end=28;
+        }
+        else if (m==4||m==6||m==9||m==11)
+            end=30;
+        else if (m==1||m==3||m==5||m==7||m==8||m==10||m==12)
+            end=31;
+        
+        if (x==0&&(m<=9||m==10))
+            sum+=end;
+        else if (x==m&&m<=9)
+            sum+=end;
+        else if (x==1&&(m==10||m==12))
+            sum+=end;
+        else if (x==1&&m==11)
+            sum+=2*end;
+        else if (x==2&&m==12)
+            sum+=end;
+        //cout<<y<<" "<<m<<" "<<x<<" "<<end<<" "<<sum<<endl;
+        for (int i=1;i<=end;i++)
+        {
+            tmp=i;
+            while(tmp)
+            {
+                if (tmp%10==x)
+                    sum++;
+                tmp/=10;
+            }
+        }
+        if (x==0)
+            sum+=9;
+        sum+=num*end;
+        cout<<sum<<endl;
+        sum=0;
+        num=0;
+    }
+    return 0;
+}
+
+简略版：
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+     int y,m,x;
+     while(cin>>y>>m>>x)
+     {
+         int a[11]={0},maxnday[]={31,28,31,30,31,30,31,31,30,31,30,31};
+         if (y%4==0 and y%100 or y%400==0) 
+             maxnday[1]++;
+         int k=y*10000+m*100;
+         for (int i=k+1;i<=k+maxnday[m-1];i++)
+        {
+              int t=i;
+              while(t)
+              {
+                   a[t%10]++;
+                   t/=10;
+              }
+        }
+        cout<<a[x]<<endl;
+     }
+     return 0;
+}
+ 
+重数字：
+#include<bits/stdc++.h>
+using namespace std;
+int fun(int n,int x)
+{
+    int flag=0,sum=0;
+    while (n)
+    {
+        flag++;
+        if (n%10==x)
+            sum++;
+        n/=10;
+    }
+    if (flag==1&&x==0)
+        sum++;
+    return sum;
+}
+int main()
+{
+    int y,m,x,tmp,sum=0,end;
+    while (cin>>y>>m>>x)
+    {   
+        if (m==2)
+        {
+            if ((y%400==0)||y%100!=0&&y%4==0)
+                end=29;
+            else
+                end=28;
+        }
+        else if (m==4||m==6||m==9||m==11)
+            end=30;
+        else if (m==1||m==3||m==5||m==7||m==8||m==10||m==12)
+            end=31;
+        for (int i=1;i<=end;i++)
+        {
+            sum+=fun(i,x);
+            sum+=fun(y,x);
+            sum+=fun(m,x);
+        }
+        cout<<sum<<endl;
+        sum=0;
+    }
+    return 0;
+}
