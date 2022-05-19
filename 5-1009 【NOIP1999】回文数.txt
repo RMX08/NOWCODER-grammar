@@ -1,0 +1,57 @@
+#include<bits/stdc++.h>
+using namespace std;
+int len;
+string m,a,b;
+bool fun(int n,int *num1)
+{
+    int num2[101]={0},flag=0;
+    for (int i=0;i<len;i++)
+        num2[i]=num1[len-i-1];
+    for (int i=0;i<len;i++)
+        num1[i]+=num2[i];
+    for (int i=0;i<len;i++)
+    {
+        num1[i+1]+=num1[i]/n;
+        num1[i]%=n;
+        if (num1[len]!=0)
+            flag=1;
+    }
+    if (flag==1)
+        len++;
+    for (int i=0;i<len/2;i++)
+    {
+        if (num1[i]!=num1[len-i-1])
+            return 0;
+    }
+    return 1;
+}
+int main()
+{
+    int n,num1[101]={0};
+    cin>>n>>m;
+    a=m;
+    b=m;
+    len=a.length();
+    reverse(b.begin(),b.end());
+    if (a==b)
+    {
+        cout<<"STEP=0";
+        return 0;
+    }
+    for (int i=0;i<len;i++)
+    {
+        if (a[i]>='0'&&a[i]<='9')
+            num1[i]=a[i]-'0';
+        else if (a[i]>='A')
+            num1[i]=a[i]-'A'+10;
+    }
+    for (int i=1;i<=30;i++)
+    {
+        if (fun(n,num1))
+        {
+            cout<<"STEP="<<i;
+            return 0;
+        }
+    }
+    cout<<"Impossible!";
+}
