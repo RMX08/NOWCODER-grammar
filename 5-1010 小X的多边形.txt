@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n,arr[30][2];
+    float sum=0;
+    cin>>n;
+    for (int i=0;i<n;i++)
+        for (int j=0;j<2;j++)
+        cin>>arr[i][j];
+    for (int i=0;i<n-2;i++)
+    {
+        double a,b,c,p;
+        a=sqrt(pow(arr[0][0]-arr[i+1][0],2)+pow(arr[0][1]-arr[i+1][1],2));
+        b=sqrt(pow(arr[i+1][0]-arr[i+2][0],2)+pow(arr[i+1][1]-arr[i+2][1],2));
+        c=sqrt(pow(arr[0][0]-arr[i+2][0],2)+pow(arr[0][1]-arr[i+2][1],2));
+        p=(a+b+c)/2;
+        sum+=sqrt(p*(p-a)*(p-b)*(p-c));
+    }
+    //cout<<sum+0.5<<endl;
+    cout<<(int)(sum+0.5);
+    return 0;
+}
