@@ -1,0 +1,23 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int sum=0,num=0;
+    char a;
+    while (cin>>a)
+        sum+=a-'0';//sum=3+8=11
+    //cout<<sum<<endl;
+    while (sum>9)
+    {
+        while (sum)
+        {
+            num+=sum%10;//num=1+1
+            sum/=10;
+        }
+        sum=num;
+        num=0;
+        //cout<<sum<<endl;
+    }
+    cout<<sum;
+    return 0;
+}
