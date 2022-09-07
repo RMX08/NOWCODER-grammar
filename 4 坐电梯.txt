@@ -1,0 +1,15 @@
+#include<stdio.h>
+using namespace std;
+int main()
+{
+    int n,k,a,max=0,sum=0;
+    scanf("%d %d",&n,&k);
+    for (int i=0;i<n;i++)
+    {
+        scanf("%d",&a);
+        max=a>max?a:max;
+    }
+    sum=max-1+(max-k);
+    printf("%d",sum);
+    return 0;
+}
