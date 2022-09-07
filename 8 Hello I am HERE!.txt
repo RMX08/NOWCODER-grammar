@@ -1,0 +1,41 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int T;
+    cin>>T;
+    while (T--)
+    {
+        int sum[50002]={0},flag=0;
+        string a,b;
+        cin>>a>>b;
+        reverse(a.begin(),a.end());
+        reverse(b.begin(),b.end());
+        //for (int i=a.length()-1;i>=0;i--)
+        if (a.length()>b.length())//让b的长度大于a
+            swap(a,b);
+        for (int i=0;i<a.length();i++)
+            sum[i]=a[i]-'0'+b[i]-'0';//将每个字符位的数字相加
+        if (b.length()>a.length())//将b大于a之后的字符转入sum
+            for (int i=a.length();i<b.length();i++)
+                sum[i]=b[i]-'0';
+        for (int i=0;i<b.length();i++)
+            if (sum[i]>9)
+            {
+                sum[i+1]+=sum[i]/10;
+                sum[i]%=10;
+            }//进位操作
+        for (int i=b.length()+1;i>=0;i--)//从后往前倒着输出
+        {
+            if (sum[i]==0&&flag==0)//舍去开头的0
+                continue;
+            else
+            {
+                cout<<sum[i];
+                flag=1;
+            }
+        }
+        cout<<endl;
+    }
+    return 0;
+}
