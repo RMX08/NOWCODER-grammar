@@ -1,0 +1,12 @@
+#include<stdio.h>
+using namespace std;
+int main()
+{
+    long long x,n;
+    scanf("%lld %lld",&x,&n);
+    if (x<n)
+        printf("%lld",x);
+    else
+        printf("%lld",x*n);
+    return 0;
+}
