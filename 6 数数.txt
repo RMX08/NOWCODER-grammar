@@ -1,0 +1,20 @@
+#include<stdio.h>
+long long ans=0;
+void dfs(int cnt,int n)
+{
+    n--;
+    if (n>=0)
+    {
+        for (int i=1;i<=cnt;i++)
+            ans++;
+        dfs(cnt+2,n);
+    }
+}
+int main()
+{
+    long long cnt=1,n;
+    scanf("%lld",&n);
+    dfs(cnt,n);
+    printf("%lld",ans);
+    return 0;
+}
