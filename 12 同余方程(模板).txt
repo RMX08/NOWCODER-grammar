@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+#define ll long long
+ll a,b,x,y,g;
+int exgcd(ll a,ll b,ll& x,ll& y)//欧几里得算法
+{
+    //cout<<a<<" "<<b<<" "<<x<<" "<<y<<endl;
+    if (b==0)
+    {
+        x=1;
+        y=0;
+        //cout<<"jin "<<a<<" "<<b<<" "<<x<<" "<<y<<endl;
+        return a;
+    }
+    ll res=exgcd(b,a%b,x,y);
+    //cout<<"re "<<a<<" "<<b<<" "<<x<<" "<<y<<" "<<res<<endl;
+    ll temp=x;
+    x=y;
+    y=temp-(a/b)*y;
+    return res;
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while (T--)
+    {
+        cin>>a>>b;
+        g=exgcd(a,b,x,y);//先求a和b的最大公约数
+        //cout<<a<<" "<<b<<" "<<x<<" "<<y<<endl;
+        if (g!=1)
+            cout<<"-1"<<endl;
+        else
+            cout<<(x%b+b)%b<<endl;
+    }
+    return 0;
+}
+/*
+同余方程 ax≡b(mod m)
+        即ax%m=b%m
+一元线性同余方程求解
+gcd=(a,m),如果gcd|b(b可以被gcd整除),那么该方程恰有gcd个模m的不同余的解，否则方程无解
+*/
