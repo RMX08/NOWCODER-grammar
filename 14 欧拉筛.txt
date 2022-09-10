@@ -1,0 +1,51 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+int a[100008]={0};
+void sel()
+{
+    for (int i=2;i<=100000;i++)
+    {
+        if (a[i]==0)
+            for (int j=2*i;j<=100000;j+=i)
+            {    
+                a[j]=1;
+                //cout<<j<<" "<<a[i]<<endl;
+            }
+    }
+}
+int main()
+{
+    int T;
+    cin>>T;
+    while (T--)
+    {
+        long long n,p,sum=0,fact=1;
+        cin>>n>>p;
+        if (n==1)
+            cout<<"0"<<endl;
+        else if (n==2)
+            cout<<"2"<<endl;
+        else
+        {
+            a[1]=1;
+            sel();
+            long long min;
+            min=n<p?n:p;
+            //cout<<min<<" ";
+            for (int i=2;i<=min;i++)
+            {
+                fact=fact*i%p;
+                //cout<<i<<" "<<fact<<" "<<a[i]<<endl;
+                if (a[i]==0)
+                {
+                    //cout<<i<<" ";
+                    sum=sum+fact%p;
+                    //cout<<fact<<" "<<sum<<endl;
+                }
+            }
+            cout<<sum%p<<endl;
+        }
+    }
+    return 0;
+}
