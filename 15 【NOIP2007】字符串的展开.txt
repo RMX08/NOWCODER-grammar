@@ -1,0 +1,106 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int p1,p2,p3;//p1展开方式,p2填充字符的重复个数,p3是否改为逆序
+    string s;
+    cin>>p1>>p2>>p3;
+    cin>>s;
+    for (int i=0;i<s.length();i++)
+    {
+         if((i==s.length()-1||i==0)&&s[i]=='-')
+        {
+            cout<<'-';
+            continue;
+        }
+        if (s[i]!='-')
+            cout<<s[i];
+        else
+        {
+            if (s[i+1]==s[i-1]+1)//减号前后连续
+                continue;
+            else if ((s[i-1]<='9'&&s[i-1]>='0'&&s[i+1]>='a'&&s[i+1]<='z')||s[i-1]>='a'&&s[i-1]<='z'&&s[i+1]<='9'&&s[i+1]>='0')//前后为数字字母
+                cout<<"-";
+            else if (s[i-1]=='-'||s[i+1]=='-')
+                cout<<"-";
+            else if (s[i+1]<=s[i-1])//减号右边的字符按照ASCII码的顺序小于或等于左边字符
+                cout<<"-";
+            else 
+            {
+                if (p1==1)//小写
+                {
+                    if (s[i-1]<='9')//为数字
+                    {
+                        if (p3==1)//顺序
+                        {
+                            for (int j=s[i-1]+1;j<s[i+1];j++)
+                                for (int p=1;p<=p2;p++)//次数
+                                    cout<<j-'0';
+                        }
+                        else if (p3==2)//逆序
+                        {
+                            for (int j=s[i+1]-1;j>s[i-1];j--)
+                                for (int p=1;p<=p2;p++)//次数
+                                    cout<<j-'0';
+                        }
+                    }
+                    else//为字母
+                    {
+                        if (p3==1)//顺序
+                        {
+                            for (char j=s[i-1]+1;j<s[i+1];j++)
+                                for (int p=1;p<=p2;p++)
+                                    cout<<j;
+                        }
+                        else if (p3==2)//逆序
+                        {
+                            for (char j=s[i+1]-1;j>s[i-1];j--)
+                                for (int p=1;p<=p2;p++)
+                                    cout<<j;
+                        }
+                    }
+                }
+                else if (p1==2)//大写
+                {
+                    if (s[i-1]<='9')//为数字
+                    {
+                        if (p3==1)//顺序
+                        {
+                            for (int j=s[i-1]+1;j<s[i+1];j++)
+                                for (int p=1;p<=p2;p++)//次数
+                                    cout<<j-'0';
+                        }
+                        else if (p3==2)//逆序
+                        {
+                            for (int j=s[i+1]-1;j>s[i-1];j--)
+                                for (int p=1;p<=p2;p++)//次数
+                                    cout<<j-'0';
+                        }
+                    }
+                    else//为字母
+                    {
+                        if (p3==1)//顺序
+                        {
+                            for (char j=s[i-1]+1;j<s[i+1];j++)
+                                for (int p=1;p<=p2;p++)
+                                    cout<<(char)(j-'a'+'A');
+                        }
+                        else if (p3==2)//逆序
+                        {
+                            for (char j=s[i+1]-1;j>s[i-1];j--)
+                                for (int p=1;p<=p2;p++)
+                                    cout<<(char)(j-'a'+'A');
+                        }
+                    }
+                }
+                else if (p1==3)//输出*
+                {
+                    for (int j=s[i-1]+1;j<s[i+1];j++)
+                        for (int p=1;p<=p2;p++)
+                            cout<<"*";
+                }
+            }
+        }
+    }
+    return 0;
+}
